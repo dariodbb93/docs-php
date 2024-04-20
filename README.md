@@ -78,3 +78,4 @@ changes by hand if you want your site to include them.
 As a result, this template repository is fundamentally only a skeleton.
 Once you clone the template, you are on your way to maintaining your own
 customized Sculpin blog.# blog-php
+# docs-php
