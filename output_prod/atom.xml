@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title><![CDATA[Sculpin Blog]]></title>
+    <link href="/atom.xml" rel="self"/>
+    <link href="/"/>
+    <updated>2024-04-20T13:35:25+00:00</updated>
+    <id>/</id>
+        <author>
+        <name><![CDATA[[insert name here]]]></name>            </author>
+        <generator uri="http://sculpin.io/">Sculpin</generator>
+        <entry>
+        <title type="html"><![CDATA[Dario]]></title>
+        <link href="/_posts/1-welcome-to-my-blog copy"/>
+        <updated>2024-04-20T13:35:25+00:00</updated>
+        <id>/_posts/1-welcome-to-my-blog copy</id>
+        <content type="html"><![CDATA[<p><img src="/assets/img/mee.jpg" alt="me.jpg" /></p>
+
+<p>Mi chiamo Dario Del Bel Belluz, ho 30 anni e sono laureato in Economia. Tramite questo blog voglio divulgare le mie conoscenze base di informatica. <br>
+Buona lettura!</p>
+]]></content>
+    </entry>
+        <entry>
+        <title type="html"><![CDATA[Curriculum personale]]></title>
+        <link href="/_posts/2-curriculum"/>
+        <updated>2024-04-20T13:35:25+00:00</updated>
+        <id>/_posts/2-curriculum</id>
+        <content type="html"><![CDATA[<ul>
+<li>2012 - Maturità tecnica</li>
+<li>2017 - Laurea in Economia Aziendale <a href="/assets/img/laurea.pdf">Link</a></li>
+<li>2022 - Aulab Full Stack Developer  <a href="/assets/img/aulab.pdf">Link</a></li>
+<li>2023 - Hubspot Academy <a href="/assets/img/hubspot.pdf">Link</a></li>
+<li>2023 - Devacademy - Programmazione ad oggetti con C# <a href="/assets/img/oggetti.pdf">Link</a></li>
+</ul>
+]]></content>
+    </entry>
+        <entry>
+        <title type="html"><![CDATA[Stazione meteo]]></title>
+        <link href="/_posts/3-meteo"/>
+        <updated>2024-04-20T13:35:25+00:00</updated>
+        <id>/_posts/3-meteo</id>
+        <content type="html"><![CDATA[<p><img src="/assets/img/image.jpg" alt="me.jpg" /></p>
+
+<p>Questa stazione meteo misura le temperature a Pordenone (massima, minima e media).<br>
+Ho realizzato questo progetto in node.js.
+<a href="https://meteo.dario-dbb.it/">Link</a></p>
+]]></content>
+    </entry>
+        <entry>
+        <title type="html"><![CDATA[array in php]]></title>
+        <link href="/_posts/4-array in php"/>
+        <updated>2024-04-20T13:35:25+00:00</updated>
+        <id>/_posts/4-array in php</id>
+        <content type="html"><![CDATA[<p><img src="/assets/img/php-logo.png" alt="me.jpg" /></p>
+
+<p>Php (pre-processore di ipertesti), è un linguaggio di scripting interpretato concepito principalmente per la programmazione web lato server. <br>
+In questa piccola lezione vedremo come si dichiara un array e successivamente come ciclarlo. <br></p>
+
+<ol>
+<li><strong>dichiarazione di un array di stringhe in php</strong></li>
+</ol>
+
+<pre><code>&lt;?php
+    $array = ["Luca", "Mario", "Dario", "Andrea"];
+?&gt;
+</code></pre>
+
+<ol start="2">
+<li><strong>ciclare l'array di stringhe</strong></li>
+</ol>
+
+<pre><code>&lt;?php
+    for ($i = 0; $i &lt; count($array); $i++){
+        echo $array;
+    }
+?&gt;
+</code></pre>
+]]></content>
+    </entry>
+        <entry>
+        <title type="html"><![CDATA[Passare a Linux]]></title>
+        <link href="/_posts/5-Linux"/>
+        <updated>2024-04-20T13:35:25+00:00</updated>
+        <id>/_posts/5-Linux</id>
+        <content type="html"><![CDATA[<p><img src="/assets/img/image.png" alt="image.png" /></p>
+
+<p>Vantaggi:</p>
+
+<ul>
+<li>open-source</li>
+<li>una comunità molto vasta</li>
+<li>aggiornamenti centralizzati e rilasciati costantemente</li>
+<li>enorme scelta tra le varie distribuzioni</li>
+</ul>
+]]></content>
+    </entry>
+    </feed>
