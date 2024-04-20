@@ -11,7 +11,7 @@ In questa piccola lezione vedremo come si dichiara un array e successivamente co
 
 1. **dichiarazione di un array di stringhe in php**
 
-```
+```php
 <?php
     $array = ["Luca", "Mario", "Dario", "Andrea"];
 ?>
@@ -19,7 +19,7 @@ In questa piccola lezione vedremo come si dichiara un array e successivamente co
 
 2. **ciclare l'array di stringhe**
 
-```
+```php
 <?php
     for ($i = 0; $i < count($array); $i++){
         echo $array;

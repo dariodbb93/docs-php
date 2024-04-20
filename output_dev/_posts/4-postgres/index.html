@@ -5,8 +5,8 @@
         <title> Dario Del Bel Belluz </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                <meta name="robots" content="noindex, follow">
-                <link rel="apple-touch-startup-image" href="/build/2048x2048.png">
+        <meta name="robots" content="index, follow">
+        <link rel="apple-touch-startup-image" href="/build/2048x2048.png">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="shortcut icon" sizes="76x76" href="/build/jackson/76x76.png">
@@ -80,9 +80,77 @@
                                                 <a href="mailto: dariodbb24@gmail.com" block pb-2">Email</a>
                             </div>
             <div class="md:ml-5 md:mr-5">
-                <h1>Tags</h1>
-<ul>
-    </ul>            </div>
+                <article>
+  <header class="bg-gray-100 pt-4 md:pt-7 pb-4 md:pb-7 mb-4">
+    <h2 class="uppercase font-black text-xl">Postgres on linux</h2>
+      <h3 class="capitalize text-gray-700 font-light">postgres</h3>
+    </header>
+  <section class="main_body">
+    <p><img src="/assets/img/postgres.png" alt="image.png" /></p>
+
+<p>In questa guida vedremo come installare un'istanza di postgresql in un server linux. <br></p>
+
+<ol>
+<li>aggiornare i pacchetti di sistema</li>
+</ol>
+
+<pre><code class="bash">sudo apt &amp;&amp; sudo apt upgrade
+</code></pre>
+
+<ol start="2">
+<li>installare il pacchetto di postgres</li>
+</ol>
+
+<pre><code class="bash">sudo apt install postgresql postgresql-contrib
+</code></pre>
+
+<ol start="3">
+<li>accedere alla CLI di postgres</li>
+</ol>
+
+<pre><code class="bash">sudo -i -u postgres
+</code></pre>
+
+<ol start="4">
+<li>creare un nuovo database</li>
+</ol>
+
+<pre><code class="bash">createdb nome_database
+</code></pre>
+
+<ol start="5">
+<li>configurazione delle connessioni da client esterno</li>
+</ol>
+
+<pre><code class="bash">sudo nano /etc/postgresql/&lt;versione&gt;/main/pg_hba.conf
+</code></pre>
+
+<p>Cambia l'indirizzo IP da host all all 127.0.0.1/32 md5 a host all all 0.0.0.0/0 md5 per consentire le connessioni da qualsiasi indirizzo IP. <br></p>
+
+<ol start="6">
+<li>riavviare l'istanza del motore database postgres</li>
+</ol>
+
+<pre><code class="bash">sudo service postgresql restart
+</code></pre>
+
+  </section>
+  <section class="taxonomies">
+    <div class="taxonomy">
+        <strong><a href="/posts/tags">Tags</a>:</strong>
+              </div>
+      <div class="taxonomy">
+        <strong><a href="/posts/category">Category</a>:</strong>
+                <a href="/posts/category/database relazionali">
+            database relazionali
+        </a>              </div>
+  </section>
+  <footer>
+      <p class="published_date"><strong>Published:</strong> <em>April 20, 2024</em></p>
+  </footer>
+</article>
+
+            </div>
         </div>
 
         <footer class="w-full text-right border-t border-gray-400 p-3 pin-b">

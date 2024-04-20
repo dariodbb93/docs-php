@@ -1,0 +1,12 @@
+/* Stile per snippet di codice Markdown */
+pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+}

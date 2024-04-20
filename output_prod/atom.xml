@@ -3,7 +3,7 @@
     <title><![CDATA[Sculpin Blog]]></title>
     <link href="/atom.xml" rel="self"/>
     <link href="/"/>
-    <updated>2024-04-20T13:35:25+00:00</updated>
+    <updated>2024-04-20T17:41:52+00:00</updated>
     <id>/</id>
         <author>
         <name><![CDATA[[insert name here]]]></name>            </author>
@@ -11,7 +11,7 @@
         <entry>
         <title type="html"><![CDATA[Dario]]></title>
         <link href="/_posts/1-welcome-to-my-blog copy"/>
-        <updated>2024-04-20T13:35:25+00:00</updated>
+        <updated>2024-04-20T17:41:52+00:00</updated>
         <id>/_posts/1-welcome-to-my-blog copy</id>
         <content type="html"><![CDATA[<p><img src="/assets/img/mee.jpg" alt="me.jpg" /></p>
 
@@ -22,7 +22,7 @@ Buona lettura!</p>
         <entry>
         <title type="html"><![CDATA[Curriculum personale]]></title>
         <link href="/_posts/2-curriculum"/>
-        <updated>2024-04-20T13:35:25+00:00</updated>
+        <updated>2024-04-20T17:41:52+00:00</updated>
         <id>/_posts/2-curriculum</id>
         <content type="html"><![CDATA[<ul>
 <li>2012 - Maturità tecnica</li>
@@ -36,7 +36,7 @@ Buona lettura!</p>
         <entry>
         <title type="html"><![CDATA[Stazione meteo]]></title>
         <link href="/_posts/3-meteo"/>
-        <updated>2024-04-20T13:35:25+00:00</updated>
+        <updated>2024-04-20T17:41:52+00:00</updated>
         <id>/_posts/3-meteo</id>
         <content type="html"><![CDATA[<p><img src="/assets/img/image.jpg" alt="me.jpg" /></p>
 
@@ -46,40 +46,63 @@ Ho realizzato questo progetto in node.js.
 ]]></content>
     </entry>
         <entry>
-        <title type="html"><![CDATA[array in php]]></title>
-        <link href="/_posts/4-array in php"/>
-        <updated>2024-04-20T13:35:25+00:00</updated>
-        <id>/_posts/4-array in php</id>
-        <content type="html"><![CDATA[<p><img src="/assets/img/php-logo.png" alt="me.jpg" /></p>
+        <title type="html"><![CDATA[Postgres on linux]]></title>
+        <link href="/_posts/4-postgres"/>
+        <updated>2024-04-20T17:41:52+00:00</updated>
+        <id>/_posts/4-postgres</id>
+        <content type="html"><![CDATA[<p><img src="/assets/img/postgres.png" alt="image.png" /></p>
 
-<p>Php (pre-processore di ipertesti), è un linguaggio di scripting interpretato concepito principalmente per la programmazione web lato server. <br>
-In questa piccola lezione vedremo come si dichiara un array e successivamente come ciclarlo. <br></p>
+<p>In questa guida vedremo come installare un'istanza di postgresql in un server linux. <br></p>
 
 <ol>
-<li><strong>dichiarazione di un array di stringhe in php</strong></li>
+<li>aggiornare i pacchetti di sistema</li>
 </ol>
 
-<pre><code>&lt;?php
-    $array = ["Luca", "Mario", "Dario", "Andrea"];
-?&gt;
+<pre><code class="bash">sudo apt &amp;&amp; sudo apt upgrade
 </code></pre>
 
 <ol start="2">
-<li><strong>ciclare l'array di stringhe</strong></li>
+<li>installare il pacchetto di postgres</li>
 </ol>
 
-<pre><code>&lt;?php
-    for ($i = 0; $i &lt; count($array); $i++){
-        echo $array;
-    }
-?&gt;
+<pre><code class="bash">sudo apt install postgresql postgresql-contrib
+</code></pre>
+
+<ol start="3">
+<li>accedere alla CLI di postgres</li>
+</ol>
+
+<pre><code class="bash">sudo -i -u postgres
+</code></pre>
+
+<ol start="4">
+<li>creare un nuovo database</li>
+</ol>
+
+<pre><code class="bash">createdb nome_database
+</code></pre>
+
+<ol start="5">
+<li>configurazione delle connessioni da client esterno</li>
+</ol>
+
+<pre><code class="bash">sudo nano /etc/postgresql/&lt;versione&gt;/main/pg_hba.conf
+</code></pre>
+
+<p>Cambia l'indirizzo IP da host all all 127.0.0.1/32 md5 a host all all 0.0.0.0/0 md5 per consentire le connessioni da qualsiasi indirizzo IP. <br></p>
+
+<ol start="6">
+<li>riavviare l'istanza del motore database postgres</li>
+</ol>
+
+<pre><code class="bash">sudo service postgresql restart
 </code></pre>
 ]]></content>
     </entry>
         <entry>
         <title type="html"><![CDATA[Passare a Linux]]></title>
         <link href="/_posts/5-Linux"/>
-        <updated>2024-04-20T13:35:25+00:00</updated>
+        <updated>2024-04-20T17:41:52+00:00</updated>
         <id>/_posts/5-Linux</id>
         <content type="html"><![CDATA[<p><img src="/assets/img/image.png" alt="image.png" /></p>
 
@@ -91,6 +114,37 @@ In questa piccola lezione vedremo come si dichiara un array e successivamente co
 <li>aggiornamenti centralizzati e rilasciati costantemente</li>
 <li>enorme scelta tra le varie distribuzioni</li>
 </ul>
+]]></content>
+    </entry>
+        <entry>
+        <title type="html"><![CDATA[array in php]]></title>
+        <link href="/_posts/5-array in php"/>
+        <updated>2024-04-20T17:41:52+00:00</updated>
+        <id>/_posts/5-array in php</id>
+        <content type="html"><![CDATA[<p><img src="/assets/img/php-logo.png" alt="me.jpg" /></p>
+
+<p>Php (pre-processore di ipertesti), è un linguaggio di scripting interpretato concepito principalmente per la programmazione web lato server. <br>
+In questa piccola lezione vedremo come si dichiara un array e successivamente come ciclarlo. <br></p>
+
+<ol>
+<li><strong>dichiarazione di un array di stringhe in php</strong></li>
+</ol>
+
+<pre><code class="php">&lt;?php
+    $array = ["Luca", "Mario", "Dario", "Andrea"];
+?&gt;
+</code></pre>
+
+<ol start="2">
+<li><strong>ciclare l'array di stringhe</strong></li>
+</ol>
+
+<pre><code class="php">&lt;?php
+    for ($i = 0; $i &lt; count($array); $i++){
+        echo $array;
+    }
+?&gt;
+</code></pre>
 ]]></content>
     </entry>
     </feed>
