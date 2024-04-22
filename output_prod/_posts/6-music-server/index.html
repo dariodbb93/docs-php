@@ -82,34 +82,134 @@
             <div class="md:ml-5 md:mr-5">
                 <article>
   <header class="bg-gray-100 pt-4 md:pt-7 pb-4 md:pb-7 mb-4">
-    <h2 class="uppercase font-black text-xl">array in php</h2>
-      <h3 class="capitalize text-gray-700 font-light">array in php</h3>
+    <h2 class="uppercase font-black text-xl">music webserver on linux</h2>
+      <h3 class="capitalize text-gray-700 font-light">music webserver on linux</h3>
     </header>
   <section class="main_body">
-    <p><img src="/assets/img/php-logo.png" alt="me.jpg" /></p>
-
-<p>Php (pre-processore di ipertesti), è un linguaggio di scripting interpretato concepito principalmente per la programmazione web lato server. <br>
-In questa piccola lezione vedremo come si dichiara un array e successivamente come ciclarlo. <br></p>
+    <p>In questa guida vedremo come realizzare un server linux dove possiamo ascoltare la musica. <br></p>
 
 <ol>
-<li><strong>dichiarazione di un array di stringhe in php</strong></li>
+<li>ci servirà un server VPS o comunque un server su cui installare ubuntu server</li>
+<li>aggiornamento globale dei pacchetti a sistema</li>
 </ol>
 
-<pre><code class="php">&lt;?php
-    $array = ["Luca", "Mario", "Dario", "Andrea"];
-?&gt;
+<pre><code class="bash">sudo apt update
+sudo apt upgrade
+sudo apt install vim ffmpeg
 </code></pre>
 
-<ol start="2">
-<li><strong>ciclare l'array di stringhe</strong></li>
+<ol start="3">
+<li>creazione delle cartelle di sistema</li>
 </ol>
 
-<pre><code class="php">&lt;?php
-    for ($i = 0; $i &lt; count($array); $i++){
-        echo $array;
-    }
-?&gt;
+<pre><code class="bash">sudo install -d -o &lt;user&gt; -g &lt;group&gt; /opt/navidrome
+sudo install -d -o &lt;user&gt; -g &lt;group&gt; /var/lib/navidrome
 </code></pre>
+
+<ol start="4">
+<li>ottenere la libreria navidrome
+sostituisci la versione con quella desiderata, dai qui puoi vederle: https://github.com/navidrome/navidrome/releases</li>
+</ol>
+
+<pre><code class="bash">wget https://github.com/navidrome/navidrome/releases/download/v0.XX.X/navidrome_0.XX.X_linux_amd64.tar.gz -O Navidrome.tar.gz
+sudo tar -xvzf Navidrome.tar.gz -C /opt/navidrome/
+sudo chown -R &lt;user&gt;:&lt;group&gt; /opt/navidrome
+</code></pre>
+
+<ol start="5">
+<li>crea un file di configurazione per navidrome</li>
+</ol>
+
+<pre><code class="bash">MusicFolder = "&lt;library_path&gt;"
+</code></pre>
+
+<ol start="6">
+<li>crea il servizio per navidrome</li>
+</ol>
+
+<pre><code class="bash">cd /etc/systemd/system/
+sudo nano navidrome.service
+</code></pre>
+
+<ol start="7">
+<li>incolla il template sostituendo utente e gruppo indicati in precedenzza</li>
+</ol>
+
+<pre><code class="bash">[Unit]
+Description=Navidrome Music Server and Streamer compatible with Subsonic/Airsonic
+After=remote-fs.target network.target
+AssertPathExists=/var/lib/navidrome
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+User=&lt;user&gt;
+Group=&lt;group&gt;
+Type=simple
+ExecStart=/opt/navidrome/navidrome --configfile "/var/lib/navidrome/navidrome.toml"
+WorkingDirectory=/var/lib/navidrome
+TimeoutStopSec=20
+KillMode=process
+Restart=on-failure
+
+# See https://www.freedesktop.org/software/systemd/man/systemd.exec.html
+DevicePolicy=closed
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateUsers=yes
+ProtectControlGroups=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=yes
+RestrictRealtime=yes
+SystemCallFilter=~@clock @debug @module @mount @obsolete @reboot @setuid @swap
+ReadWritePaths=/var/lib/navidrome
+
+# You can uncomment the following line if you're not using the jukebox This
+# will prevent navidrome from accessing any real (physical) devices
+#PrivateDevices=yes
+
+# You can change the following line to `strict` instead of `full` if you don't
+# want navidrome to be able to write anything on your filesystem outside of
+# /var/lib/navidrome.
+ProtectSystem=full
+
+# You can uncomment the following line if you don't have any media in /home/*.
+# This will prevent navidrome from ever reading/writing anything there.
+#ProtectHome=true
+
+# You can customize some Navidrome config options by setting environment variables here. Ex:
+#Environment=ND_BASEURL="/navidrome"
+</code></pre>
+
+<ol start="8">
+<li>fai partire il servizio</li>
+</ol>
+
+<pre><code class="bash">sudo systemctl daemon-reload
+sudo systemctl start navidrome.service
+sudo systemctl status navidrome.service
+</code></pre>
+
+<ol start="9">
+<li>ed infine</li>
+</ol>
+
+<pre><code class="bash">sudo systemctl enable navidrome.service
+</code></pre>
+
+<ol start="10">
+<li>ottieni l'ip del tuo server linux</li>
+</ol>
+
+<pre><code class="bash">ip route
+</code></pre>
+
+<ol start="11">
+<li>icollalo sul browser e carica la musica nella cartella specificata.</li>
+</ol>
 
   </section>
   <section class="taxonomies">
