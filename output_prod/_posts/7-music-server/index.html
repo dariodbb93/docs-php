@@ -5,8 +5,8 @@
         <title> Dario Del Bel Belluz </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                <meta name="robots" content="noindex, follow">
-                <link rel="apple-touch-startup-image" href="/build/2048x2048.png">
+        <meta name="robots" content="index, follow">
+        <link rel="apple-touch-startup-image" href="/build/2048x2048.png">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="shortcut icon" sizes="76x76" href="/build/jackson/76x76.png">
@@ -80,7 +80,154 @@
                                                 <a href="mailto: dariodbb24@gmail.com" block pb-2">Email</a>
                             </div>
             <div class="md:ml-5 md:mr-5">
-                <h2>Page not found</h2>            </div>
+                <article>
+  <header class="bg-gray-100 pt-4 md:pt-7 pb-4 md:pb-7 mb-4">
+    <h2 class="uppercase font-black text-xl">music webserver on linux</h2>
+      <h3 class="capitalize text-gray-700 font-light">music webserver on linux</h3>
+    </header>
+  <section class="main_body">
+    <p>In questa guida vedremo come realizzare un server linux dove possiamo ascoltare la musica. <br></p>
+
+<ol>
+<li>ci servirà un server VPS o comunque un server su cui installare ubuntu server</li>
+<li>aggiornamento globale dei pacchetti a sistema</li>
+</ol>
+
+<pre><code class="bash">sudo apt update
+sudo apt upgrade
+sudo apt install vim ffmpeg
+</code></pre>
+
+<ol start="3">
+<li>creazione delle cartelle di sistema</li>
+</ol>
+
+<pre><code class="bash">sudo install -d -o &lt;user&gt; -g &lt;group&gt; /opt/navidrome
+sudo install -d -o &lt;user&gt; -g &lt;group&gt; /var/lib/navidrome
+</code></pre>
+
+<ol start="4">
+<li>ottenere la libreria navidrome
+sostituisci la versione con quella desiderata, dai qui puoi vederle: https://github.com/navidrome/navidrome/releases</li>
+</ol>
+
+<pre><code class="bash">wget https://github.com/navidrome/navidrome/releases/download/v0.XX.X/navidrome_0.XX.X_linux_amd64.tar.gz -O Navidrome.tar.gz
+sudo tar -xvzf Navidrome.tar.gz -C /opt/navidrome/
+sudo chown -R &lt;user&gt;:&lt;group&gt; /opt/navidrome
+</code></pre>
+
+<ol start="5">
+<li>crea un file di configurazione per navidrome</li>
+</ol>
+
+<pre><code class="bash">MusicFolder = "&lt;library_path&gt;"
+</code></pre>
+
+<ol start="6">
+<li>crea il servizio per navidrome</li>
+</ol>
+
+<pre><code class="bash">cd /etc/systemd/system/
+sudo nano navidrome.service
+</code></pre>
+
+<ol start="7">
+<li>incolla il template sostituendo utente e gruppo indicati in precedenzza</li>
+</ol>
+
+<pre><code class="bash">[Unit]
+Description=Navidrome Music Server and Streamer compatible with Subsonic/Airsonic
+After=remote-fs.target network.target
+AssertPathExists=/var/lib/navidrome
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+User=&lt;user&gt;
+Group=&lt;group&gt;
+Type=simple
+ExecStart=/opt/navidrome/navidrome --configfile "/var/lib/navidrome/navidrome.toml"
+WorkingDirectory=/var/lib/navidrome
+TimeoutStopSec=20
+KillMode=process
+Restart=on-failure
+
+# See https://www.freedesktop.org/software/systemd/man/systemd.exec.html
+DevicePolicy=closed
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateUsers=yes
+ProtectControlGroups=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=yes
+RestrictRealtime=yes
+SystemCallFilter=~@clock @debug @module @mount @obsolete @reboot @setuid @swap
+ReadWritePaths=/var/lib/navidrome
+
+# You can uncomment the following line if you're not using the jukebox This
+# will prevent navidrome from accessing any real (physical) devices
+#PrivateDevices=yes
+
+# You can change the following line to `strict` instead of `full` if you don't
+# want navidrome to be able to write anything on your filesystem outside of
+# /var/lib/navidrome.
+ProtectSystem=full
+
+# You can uncomment the following line if you don't have any media in /home/*.
+# This will prevent navidrome from ever reading/writing anything there.
+#ProtectHome=true
+
+# You can customize some Navidrome config options by setting environment variables here. Ex:
+#Environment=ND_BASEURL="/navidrome"
+</code></pre>
+
+<ol start="8">
+<li>fai partire il servizio</li>
+</ol>
+
+<pre><code class="bash">sudo systemctl daemon-reload
+sudo systemctl start navidrome.service
+sudo systemctl status navidrome.service
+</code></pre>
+
+<ol start="9">
+<li>ed infine</li>
+</ol>
+
+<pre><code class="bash">sudo systemctl enable navidrome.service
+</code></pre>
+
+<ol start="10">
+<li>ottieni l'ip del tuo server linux</li>
+</ol>
+
+<pre><code class="bash">ip route
+</code></pre>
+
+<ol start="11">
+<li>icollalo sul browser e carica la musica nella cartella specificata.</li>
+</ol>
+
+  </section>
+  <section class="taxonomies">
+    <div class="taxonomy">
+        <strong><a href="/posts/tags">Tags</a>:</strong>
+              </div>
+      <div class="taxonomy">
+        <strong><a href="/posts/category">Category</a>:</strong>
+                <a href="/posts/category/personal">
+            personal
+        </a>              </div>
+  </section>
+  <footer>
+      <p class="published_date"><strong>Published:</strong> <em>April 23, 2024</em></p>
+  </footer>
+</article>
+
+            </div>
         </div>
 
         <footer class="w-full text-right border-t border-gray-400 p-3 pin-b">

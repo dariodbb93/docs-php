@@ -3,7 +3,7 @@
     <title><![CDATA[Sculpin Blog]]></title>
     <link href="/atom.xml" rel="self"/>
     <link href="/"/>
-    <updated>2024-04-21T14:04:30+00:00</updated>
+    <updated>2024-04-23T04:26:13+00:00</updated>
     <id>/</id>
         <author>
         <name><![CDATA[[insert name here]]]></name>            </author>
@@ -11,7 +11,7 @@
         <entry>
         <title type="html"><![CDATA[Dario]]></title>
         <link href="/_posts/1-welcome-to-my-blog copy"/>
-        <updated>2024-04-21T14:04:30+00:00</updated>
+        <updated>2024-04-23T04:26:13+00:00</updated>
         <id>/_posts/1-welcome-to-my-blog copy</id>
         <content type="html"><![CDATA[<p><img src="/assets/img/mee.jpg" alt="me.jpg" /></p>
 
@@ -22,7 +22,7 @@ Buona lettura!</p>
         <entry>
         <title type="html"><![CDATA[Curriculum personale]]></title>
         <link href="/_posts/2-curriculum"/>
-        <updated>2024-04-21T14:04:30+00:00</updated>
+        <updated>2024-04-23T04:26:13+00:00</updated>
         <id>/_posts/2-curriculum</id>
         <content type="html"><![CDATA[<ul>
 <li>2012 - Maturità tecnica</li>
@@ -36,7 +36,7 @@ Buona lettura!</p>
         <entry>
         <title type="html"><![CDATA[Stazione meteo]]></title>
         <link href="/_posts/3-meteo"/>
-        <updated>2024-04-21T14:04:30+00:00</updated>
+        <updated>2024-04-23T04:26:13+00:00</updated>
         <id>/_posts/3-meteo</id>
         <content type="html"><![CDATA[<p><img src="/assets/img/image.jpg" alt="me.jpg" /></p>
 
@@ -48,7 +48,7 @@ Ho realizzato questo progetto in node.js.
         <entry>
         <title type="html"><![CDATA[Postgres on linux]]></title>
         <link href="/_posts/4-postgres"/>
-        <updated>2024-04-21T14:04:30+00:00</updated>
+        <updated>2024-04-23T04:26:13+00:00</updated>
         <id>/_posts/4-postgres</id>
         <content type="html"><![CDATA[<p><img src="/assets/img/postgres.png" alt="image.png" /></p>
 
@@ -102,7 +102,7 @@ Ho realizzato questo progetto in node.js.
         <entry>
         <title type="html"><![CDATA[Passare a Linux]]></title>
         <link href="/_posts/5-Linux"/>
-        <updated>2024-04-21T14:04:30+00:00</updated>
+        <updated>2024-04-23T04:26:13+00:00</updated>
         <id>/_posts/5-Linux</id>
         <content type="html"><![CDATA[<p><img src="/assets/img/image.png" alt="image.png" /></p>
 
@@ -119,7 +119,7 @@ Ho realizzato questo progetto in node.js.
         <entry>
         <title type="html"><![CDATA[array in php]]></title>
         <link href="/_posts/5-array in php"/>
-        <updated>2024-04-21T14:04:30+00:00</updated>
+        <updated>2024-04-23T04:26:13+00:00</updated>
         <id>/_posts/5-array in php</id>
         <content type="html"><![CDATA[<p><img src="/assets/img/php-logo.png" alt="me.jpg" /></p>
 
@@ -148,10 +148,31 @@ In questa piccola lezione vedremo come si dichiara un array e successivamente co
 ]]></content>
     </entry>
         <entry>
+        <title type="html"><![CDATA[apache web-server]]></title>
+        <link href="/_posts/6-apache"/>
+        <updated>2024-04-23T04:26:13+00:00</updated>
+        <id>/_posts/6-apache</id>
+        <content type="html"><![CDATA[<p>Apache è un web server ad alte prestazioni open-source. <br>
+Vediamo come installare apache in un server linux basato su ubuntu. <br></p>
+
+<ol>
+<li>aggiornare i pacchetti di sistema</li>
+</ol>
+
+<pre><code class="bash">sudo apt update &amp;&amp; sudo apt upgrade
+</code></pre>
+
+<ol start="2">
+<li>installare il pacchetto di apache</li>
+<li></li>
+</ol>
+]]></content>
+    </entry>
+        <entry>
         <title type="html"><![CDATA[music webserver on linux]]></title>
-        <link href="/_posts/6-music-server"/>
-        <updated>2024-04-21T14:04:30+00:00</updated>
-        <id>/_posts/6-music-server</id>
+        <link href="/_posts/7-music-server"/>
+        <updated>2024-04-23T04:26:13+00:00</updated>
+        <id>/_posts/7-music-server</id>
         <content type="html"><![CDATA[<p>In questa guida vedremo come realizzare un server linux dove possiamo ascoltare la musica. <br></p>
 
 <ol>

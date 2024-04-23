@@ -2,50 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc></loc>
-        <lastmod>2024-04-21</lastmod>
+        <lastmod>2024-04-23</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>/_posts/1-welcome-to-my-blog copy</loc>
-        <lastmod>2024-04-21T14:04:53+00:00</lastmod>
+        <lastmod>2024-04-23T04:27:30+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>/_posts/2-curriculum</loc>
-        <lastmod>2024-04-21T14:04:53+00:00</lastmod>
+        <lastmod>2024-04-23T04:27:30+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>/_posts/3-meteo</loc>
-        <lastmod>2024-04-21T14:04:53+00:00</lastmod>
+        <lastmod>2024-04-23T04:27:30+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>/_posts/4-postgres</loc>
-        <lastmod>2024-04-21T14:04:53+00:00</lastmod>
+        <lastmod>2024-04-23T04:27:30+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>/_posts/5-Linux</loc>
-        <lastmod>2024-04-21T14:04:53+00:00</lastmod>
+        <lastmod>2024-04-23T04:27:30+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>/_posts/5-array in php</loc>
-        <lastmod>2024-04-21T14:04:53+00:00</lastmod>
+        <lastmod>2024-04-23T04:27:30+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>/_posts/6-music-server</loc>
-        <lastmod>2024-04-21T14:04:53+00:00</lastmod>
+        <loc>/_posts/7-music-server</loc>
+        <lastmod>2024-04-23T04:27:30+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
